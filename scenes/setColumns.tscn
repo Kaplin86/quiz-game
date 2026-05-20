@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bubg8wecqu1mq"]
+
+[node name="Control" type="HBoxContainer" unique_id=877088085]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=955877859]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1115620469]
+layout_mode = 2
+
+[node name="PanelContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer" unique_id=936778832]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1107807059]
+layout_mode = 2
+text = "Question Column"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1521356909]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer2" type="HFlowContainer" parent="MarginContainer/VBoxContainer" unique_id=1135706449]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer2" unique_id=1985470829]
+layout_mode = 2
+text = "Question Column"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/PanelContainer2" unique_id=277183099]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=134316273]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2" unique_id=21800994]
+layout_mode = 2
