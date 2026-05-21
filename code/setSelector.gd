@@ -1,5 +1,9 @@
 extends Control
 
+var loadedQuizs : Array[Quiz] = []
+var buttonGroup = ButtonGroup.new()
+
+@export var quizBox : VBoxContainer
 
 func promptNewSet():
 	var path = await QuestionImporter.locateCSV()
@@ -12,10 +16,27 @@ func promptNewSet():
 func _ready():
 	loadQuizs()
 
+
+func sortCreation(a : Quiz, b: Quiz):
+	if a.creationDate > b.creationDate:
+		return true
+	return false
+
+
+
 func loadQuizs():
-	var quizs : Array[Quiz] = []
 	var filePaths = DirAccess.open("user://").get_files()
 	for filePath in filePaths:
 		if filePath.get_extension() == "tres":
 			var resource = ResourceLoader.load("user://"+filePath)
-			print(resource)
+			if resource is Quiz:
+				loadedQuizs.append(resource)
+	
+	loadedQuizs.sort_custom(sortCreation)
+	
+	for quiz : Quiz in loadedQuizs:
+		var newButton = Button.new()
+		newButton.toggle_mode = true
+		newButton.button_group = buttonGroup
+		newButton.text = quiz.displayName
+		quizBox.add_child(newButton)

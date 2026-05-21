@@ -17,13 +17,20 @@ class_name Quiz
 @export var descColumn : int = -1
 
 @export var _hash = ""
+@export var creationDate : float
+@export var displayName : String
 
-func _init(sourcePath : String, questions : Array[Question], questionColumn : int, answerColumn : int, incorrectColumn : Array[int] = [], descColumn : int = -1):
-	self.sourcePath = sourcePath
-	self.questions = questions
-	self.questionColumn = questionColumn
-	self.answerColumn = answerColumn
-	self.incorrectColumn = incorrectColumn
-	self.descColumn = descColumn
+func _init(src : String = "", question : Array[Question]= [], questionCol : int= -1, answerCol : int= -1, incorrectCol : Array[int] = [], descCol : int = -1):
+	if src == "":
+		return
+	self.sourcePath = src
+	self.questions = question
+	self.questionColumn = questionCol
+	self.answerColumn = answerCol
+	self.incorrectColumn = incorrectCol
+	self.descColumn = descCol
 	
-	_hash = FileAccess.get_sha256(sourcePath)
+	creationDate = Time.get_unix_time_from_system()
+	displayName = src.get_file().get_basename()
+	
+	_hash = FileAccess.get_sha256(src)

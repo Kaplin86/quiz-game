@@ -19,7 +19,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 17
 corner_detail = 5
 
-[node name="Control" type="Control" unique_id=1724904484]
+[node name="Control" type="Control" unique_id=1724904484 node_paths=PackedStringArray("quizBox")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,6 +27,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qo2up")
+quizBox = NodePath("Panel/Panel/Panel2/MarginContainer/Vbox")
 
 [node name="Panel" type="HBoxContainer" parent="." unique_id=1177095741]
 layout_mode = 1
@@ -49,13 +50,20 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_882sy")
 
-[node name="Vbox" type="VBoxContainer" parent="Panel/Panel/Panel2" unique_id=1148166945]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Panel/Panel2" unique_id=2088673917]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Vbox" type="VBoxContainer" parent="Panel/Panel/Panel2/MarginContainer" unique_id=1148166945]
+layout_mode = 2
 
 [node name="Panel2" type="Panel" parent="Panel" unique_id=1773981859]
 layout_mode = 2
