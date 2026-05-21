@@ -23,6 +23,10 @@ QuestionImporter="*uid://d3q3w16xy52ta"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[global_group]
+
+requiredInput=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
