@@ -43,3 +43,25 @@ func parseFilePathToGrid(filePath,delim = ",") -> Array[PackedStringArray]:
 	
 	fileOpening.close() 
 	return grid
+
+## Parses passed data and turns it into Question resources. Requires a question and answer column. Optionally takes incorrect column array and a reason column
+func parseDataToQuestionResource(data : Array[PackedStringArray],qColumn, aColumn, iColumn = [], rColumn = -1) -> Array[Question]:
+	var index = 0
+	var questions : Array[Question] = []
+	for row : PackedStringArray in data:
+		if index == 0:
+			index += 1 
+			continue
+		var qText = row[qColumn]
+		var aText = row[aColumn]
+		var question := Question.new(qText,aText)
+		
+		if iColumn != []:
+			for ii in iColumn:
+				question.falseAnswers.append(row[ii])
+		
+		if rColumn != -1:
+			question.answerReason = row[rColumn]
+		
+		questions.append(question)
+	return questions

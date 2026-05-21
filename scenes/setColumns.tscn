@@ -16,7 +16,7 @@ corner_detail = 5
 expand_margin_left = 5.0
 expand_margin_right = 5.0
 
-[node name="Control" type="ScrollContainer" unique_id=1697828883 node_paths=PackedStringArray("panelContainerToDupe")]
+[node name="Control" type="ScrollContainer" unique_id=1697828883 node_paths=PackedStringArray("panelContainerToDupe", "errorPopup")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,6 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tt58h")
 panelContainerToDupe = NodePath("VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer3")
+errorPopup = NodePath("PopupPanel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=220188918]
 layout_mode = 2
@@ -116,4 +117,21 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "CONFIRM."
 
+[node name="PopupPanel" type="PopupPanel" parent="." unique_id=32584811]
+oversampling_override = 1.0
+title = "Error!"
+initial_position = 1
+size = Vector2i(511, 160)
+
+[node name="Label" type="Label" parent="PopupPanel" unique_id=130883812]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 507.0
+offset_bottom = 156.0
+text = "An error occured when saving. Please try again later."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="confirm"]

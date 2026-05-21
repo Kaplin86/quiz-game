@@ -3,6 +3,7 @@ extends Control
 var fileGrid : Array[PackedStringArray]
 var headers : PackedStringArray = []
 @export var panelContainerToDupe : Node
+@export var errorPopup : Popup
 
 func _ready() -> void:
 	fileGrid = QuestionImporter.parseFilePathToGrid(QuestionImporter._questionPathHold)
@@ -18,7 +19,7 @@ func fillBox(box : OptionButton):
 	box.clear()
 	if !box.is_in_group("requiredInput"):
 		box.add_item("",0)
-		box.set_item_metadata(0,"EMPTY")
+		box.set_item_metadata(0,-1)
 	var index = 0
 	for text : String in headers:
 		box.add_item(text)
@@ -36,3 +37,37 @@ func _on_button_pressed() -> void:
 	label.text = "Incorrect Answer"
 	
 	fillBox(optionBox)
+
+
+func confirm():
+	var answerColumn = -1
+	var questionColumn = -1
+	var descColumn = -1
+	var incorrectColumns : Array[int] = []
+	for dropdown : OptionButton in get_tree().get_nodes_in_group("headerDropdown"):
+		var returningValue =dropdown.get_selected_metadata()
+		if returningValue == -1:
+			continue
+		match dropdown.get_meta("type",""):
+			"question":
+				questionColumn = returningValue
+			"answer":
+				answerColumn = returningValue
+			"desc":
+				descColumn = returningValue
+			"incorrect":
+				incorrectColumns.append(returningValue)
+	
+	var questionArray = QuestionImporter.parseDataToQuestionResource(fileGrid,questionColumn,answerColumn,incorrectColumns,descColumn)
+	
+	var quiz = Quiz.new(QuestionImporter._questionPathHold,questionArray,questionColumn,answerColumn,incorrectColumns,descColumn)
+	var path = "user://"+str(Time.get_unix_time_from_system()).replace(".","-") + ".tres"
+	var err = ResourceSaver.save(quiz, path)
+	print(err)
+	print(ProjectSettings.globalize_path(path))
+	if err == 0:
+		get_tree().change_scene_to_file("res://scenes/setSelector.tscn")
+	else:
+		errorPopup.visible = true
+		await errorPopup.popup_hide
+		get_tree().change_scene_to_file("res://scenes/setSelector.tscn")
