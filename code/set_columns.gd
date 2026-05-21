@@ -5,10 +5,7 @@ var headers : PackedStringArray = []
 @export var panelContainerToDupe : Node
 
 func _ready() -> void:
-	#temp
-	var path = await QuestionImporter.locateCSV()
-	fileGrid = QuestionImporter.parseFilePathToGrid(path)
-	#
+	fileGrid = QuestionImporter.parseFilePathToGrid(QuestionImporter._questionPathHold)
 	
 	headers = fileGrid[0]
 	fillOptionBoxes()

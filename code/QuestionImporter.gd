@@ -5,6 +5,8 @@ class_name QuestionImporterNode
 
 signal _endRequest(file : String)
 
+var _questionPathHold = ""
+
 ## Asks the user for a .csv, a .tsv, or a .quiz file and returns the path. Will return "" if a invalid path is selected.
 func locateCSV() -> String:
 	var fileRequest := FileDialog.new()
