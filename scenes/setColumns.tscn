@@ -2,13 +2,28 @@
 
 [ext_resource type="Script" uid="uid://bvqcagyd47nrt" path="res://code/set_columns.gd" id="1_tt58h"]
 
-[node name="Control" type="ScrollContainer" unique_id=1697828883]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt58h"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[node name="Control" type="ScrollContainer" unique_id=1697828883 node_paths=PackedStringArray("panelContainerToDupe")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tt58h")
+panelContainerToDupe = NodePath("VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=220188918]
 layout_mode = 2
@@ -17,57 +32,88 @@ size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=955877859]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer" unique_id=63089805]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=380069253]
 layout_mode = 2
 
-[node name="VBoxContainer" type="GridContainer" parent="VBoxContainer/MarginContainer/CenterContainer" unique_id=1444812762]
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=858166489]
 layout_mode = 2
-theme_override_constants/h_separation = 131
-columns = 4
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tt58h")
 
-[node name="PanelContainer" type="HFlowContainer" parent="VBoxContainer/MarginContainer/CenterContainer/VBoxContainer" unique_id=936778832]
+[node name="Control" type="ScrollContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel" unique_id=742938966]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="GridContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control" unique_id=1444812762]
+layout_mode = 2
+columns = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer" unique_id=1546101294]
+custom_minimum_size = Vector2(198.205, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer" unique_id=2080810263]
+custom_minimum_size = Vector2(198.205, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="HFlowContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer" unique_id=936778832]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer" unique_id=1107807059]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer" unique_id=1107807059]
 layout_mode = 2
 text = "Question Column*"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer" unique_id=1521356909 groups=["headerDropdown", "requiredInput"]]
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer" unique_id=1521356909 groups=["headerDropdown", "requiredInput"]]
 layout_mode = 2
 size_flags_horizontal = 3
+metadata/type = "question"
 
-[node name="PanelContainer2" type="HFlowContainer" parent="VBoxContainer/MarginContainer/CenterContainer/VBoxContainer" unique_id=1135706449]
+[node name="PanelContainer2" type="HFlowContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer" unique_id=1135706449]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer2" unique_id=1985470829]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer2" unique_id=1985470829]
 layout_mode = 2
 text = "Answer Column*"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer2" unique_id=277183099 groups=["headerDropdown", "requiredInput"]]
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer2" unique_id=277183099 groups=["headerDropdown", "requiredInput"]]
 layout_mode = 2
 size_flags_horizontal = 3
+metadata/type = "answer"
 
-[node name="PanelContainer3" type="HFlowContainer" parent="VBoxContainer/MarginContainer/CenterContainer/VBoxContainer" unique_id=2100623881]
+[node name="PanelContainer3" type="HFlowContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer" unique_id=2100623881]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer3" unique_id=1376698727]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer3" unique_id=1376698727]
 layout_mode = 2
 text = "Answer Description"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer3" unique_id=1292230791 groups=["headerDropdown"]]
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer3" unique_id=1292230791 groups=["headerDropdown"]]
 layout_mode = 2
 size_flags_horizontal = 3
+metadata/type = "desc"
 
-[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/CenterContainer/VBoxContainer" unique_id=1756407133]
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer" unique_id=1756407133]
+custom_minimum_size = Vector2(0, 46.77)
 layout_mode = 2
 text = "ADD INCORRECT ANSWER COLUMN"
+autowrap_mode = 3
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=2139451193]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "CONFIRM."
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
