@@ -2,9 +2,10 @@ extends Control
 
 var loadedQuizs : Array[Quiz] = []
 var buttonGroup = ButtonGroup.new()
-var selectedQuiz = null
+var selectedQuiz : Quiz
 
 @export var quizBox : VBoxContainer
+@export var themeButton : OptionButton
 
 func promptNewSet():
 	var path = await QuestionImporter.locateCSV()
@@ -17,6 +18,11 @@ func promptNewSet():
 func _ready():
 	loadQuizs()
 	buttonGroup.connect("pressed",setSelected)
+
+func loadThemes():
+	for theme : Theme in ThemeController.themes:
+		themeButton.add_item(theme.resource_name)
+		themeButton.set_item_metadata(-1,theme)
 
 func setSelected(button : BaseButton):
 	for I in get_tree().get_nodes_in_group("requireDataset"):
@@ -51,4 +57,5 @@ func loadQuizs():
 
 
 func pressedSelected():
+	QuestionImporter.loadedQuiz = selectedQuiz
 	

@@ -1,0 +1,22 @@
+[gd_resource type="Theme" format=3 uid="uid://daelsbu3dtjsa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sapw8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0.3764706, 0.47843137, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obw1x"]
+bg_color = Color(0, 0.2509804, 0.32156864, 0.6392157)
+
+[resource]
+BackgroundColor/colors/background = Color(0, 0.1254902, 0.16078432, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_sapw8")
+Panel/styles/panel = SubResource("StyleBoxFlat_obw1x")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_obw1x")

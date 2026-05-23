@@ -119,5 +119,16 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="Theme" type="HBoxContainer" parent="Panel/Panel2/MarginContainer/VBoxContainer" unique_id=67017341]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Panel2/MarginContainer/VBoxContainer/Theme" unique_id=1560750344]
+layout_mode = 2
+text = "Theme: "
+
+[node name="OptionButton" type="OptionButton" parent="Panel/Panel2/MarginContainer/VBoxContainer/Theme" unique_id=80996444]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [connection signal="pressed" from="Panel/Panel2/MarginContainer/VBoxContainer/New" to="." method="promptNewSet"]
 [connection signal="pressed" from="Panel/Panel2/MarginContainer/VBoxContainer/Play" to="." method="pressedSelected"]

@@ -6,6 +6,8 @@ class_name QuestionImporterNode
 signal _endRequest(file : String)
 
 var _questionPathHold = ""
+## A variable meant to move data across. Does not serve a function within a standalone question importer.
+var loadedQuiz : Quiz
 
 ## Asks the user for a .csv, a .tsv, or a .quiz file and returns the path. Will return "" if a invalid path is selected.
 func locateCSV() -> String:
