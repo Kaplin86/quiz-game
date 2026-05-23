@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tt58h")
-panelContainerToDupe = NodePath("VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer/PanelContainer3")
+panelContainerToDupe = NodePath("VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer3")
 errorPopup = NodePath("PopupPanel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=220188918]
@@ -36,71 +36,64 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel" unique_id=1493667130]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Control" type="ScrollContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=742938966]
+[node name="Control" type="ScrollContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel" unique_id=742938966]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="GridContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control" unique_id=1444812762]
+[node name="VBoxContainer" type="GridContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control" unique_id=1444812762]
 layout_mode = 2
 columns = 2
 
-[node name="Control" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer" unique_id=1546101294]
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer" unique_id=1546101294]
 custom_minimum_size = Vector2(198.205, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Control2" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer" unique_id=2080810263]
+[node name="Control2" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer" unique_id=2080810263]
 custom_minimum_size = Vector2(198.205, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PanelContainer" type="HFlowContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer" unique_id=936778832]
+[node name="PanelContainer" type="HFlowContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer" unique_id=936778832]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer/PanelContainer" unique_id=1107807059]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer" unique_id=1107807059]
 layout_mode = 2
 text = "Question Column*"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer/PanelContainer" unique_id=1521356909 groups=["headerDropdown", "requiredInput"]]
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer" unique_id=1521356909 groups=["headerDropdown", "requiredInput"]]
 layout_mode = 2
 size_flags_horizontal = 3
 metadata/type = "question"
 
-[node name="PanelContainer2" type="HFlowContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer" unique_id=1135706449]
+[node name="PanelContainer2" type="HFlowContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer" unique_id=1135706449]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer/PanelContainer2" unique_id=1985470829]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer2" unique_id=1985470829]
 layout_mode = 2
 text = "Answer Column*"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer/PanelContainer2" unique_id=277183099 groups=["headerDropdown", "requiredInput"]]
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer2" unique_id=277183099 groups=["headerDropdown", "requiredInput"]]
 layout_mode = 2
 size_flags_horizontal = 3
 metadata/type = "answer"
 
-[node name="PanelContainer3" type="HFlowContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer" unique_id=2100623881]
+[node name="PanelContainer3" type="HFlowContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer" unique_id=2100623881]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer/PanelContainer3" unique_id=1376698727]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer3" unique_id=1376698727]
 layout_mode = 2
 text = "Answer Description"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer/PanelContainer3" unique_id=1292230791 groups=["headerDropdown"]]
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/PanelContainer3" unique_id=1292230791 groups=["headerDropdown"]]
 layout_mode = 2
 size_flags_horizontal = 3
 metadata/type = "desc"
 
-[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer" unique_id=1756407133]
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer" unique_id=1756407133]
 custom_minimum_size = Vector2(0, 46.77)
 layout_mode = 2
 text = "ADD INCORRECT ANSWER COLUMN"
@@ -128,5 +121,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/Panel/Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="confirm"]

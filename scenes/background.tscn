@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://b6k6lnyrnb5sa" path="res://uiThemes/watermelon.tres" id="2_y0upk"]
 [ext_resource type="Theme" uid="uid://cuo14tnhntxhe" path="res://uiThemes/midnight.tres" id="3_jougr"]
 [ext_resource type="Theme" uid="uid://daelsbu3dtjsa" path="res://uiThemes/ocean.tres" id="4_cbsqf"]
+[ext_resource type="Theme" uid="uid://gnmrc32i05yc" path="res://uiThemes/blinding.tres" id="5_wisxt"]
 
 [sub_resource type="Gradient" id="Gradient_y0upk"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -23,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bkp1e")
-themes = Array[Theme]([ExtResource("2_y0upk"), ExtResource("3_jougr"), ExtResource("4_cbsqf")])
+themes = Array[Theme]([ExtResource("2_y0upk"), ExtResource("3_jougr"), ExtResource("4_cbsqf"), ExtResource("5_wisxt")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1749123324]
 layout_mode = 1

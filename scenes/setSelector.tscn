@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://dibk2dugg5wks" path="res://code/setSelector.gd" id="1_qo2up"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_882sy"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.105882354)
 border_width_left = 3
 border_width_top = 3
@@ -19,7 +19,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 17
 corner_detail = 5
 
-[node name="Control" type="Control" unique_id=1724904484 node_paths=PackedStringArray("quizBox")]
+[node name="Control" type="Control" unique_id=1724904484 node_paths=PackedStringArray("quizBox", "themeButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +27,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qo2up")
-quizBox = NodePath("Panel/Panel/Panel2/MarginContainer/Vbox")
+quizBox = NodePath("Panel/Panel/Panel2/Vbox")
+themeButton = NodePath("Panel/Panel2/MarginContainer/VBoxContainer/Theme/OptionButton")
 
 [node name="Panel" type="HBoxContainer" parent="." unique_id=1177095741]
 layout_mode = 1
@@ -44,26 +45,15 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel2" type="Panel" parent="Panel/Panel" unique_id=132503699]
+[node name="Panel2" type="PanelContainer" parent="Panel/Panel" unique_id=2009418962]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_882sy")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/Panel/Panel2" unique_id=2088673917]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Vbox" type="VBoxContainer" parent="Panel/Panel/Panel2/MarginContainer" unique_id=1148166945]
+[node name="Vbox" type="VBoxContainer" parent="Panel/Panel/Panel2" unique_id=1148166945]
 layout_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel2" type="Panel" parent="Panel" unique_id=1773981859]
 layout_mode = 2
@@ -76,9 +66,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 80
+theme_override_constants/margin_left = 70
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 80
+theme_override_constants/margin_right = 70
 theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/Panel2/MarginContainer" unique_id=699190209]
@@ -132,3 +122,4 @@ size_flags_horizontal = 3
 
 [connection signal="pressed" from="Panel/Panel2/MarginContainer/VBoxContainer/New" to="." method="promptNewSet"]
 [connection signal="pressed" from="Panel/Panel2/MarginContainer/VBoxContainer/Play" to="." method="pressedSelected"]
+[connection signal="item_selected" from="Panel/Panel2/MarginContainer/VBoxContainer/Theme/OptionButton" to="." method="_on_option_button_item_selected"]

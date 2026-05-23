@@ -1,11 +1,16 @@
-[gd_resource type="Theme" format=3 uid="uid://cuo14tnhntxhe"]
+[gd_resource type="Theme" format=3 uid="uid://gnmrc32i05yc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sapw8"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.30588236, 0.1764706, 0.38039216, 1)
+bg_color = Color(0.893, 0.95, 0.93955, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -17,15 +22,16 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0.22745098, 0.003921569, 0.36078432, 0.6745098)
+bg_color = Color(0.73950005, 0.77865, 0.87, 0.7647059)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [resource]
-resource_name = "Midnight"
-BackgroundColor/colors/background = Color(0.06666667, 0, 0.10980392, 1)
+resource_name = "Blinding"
+BackgroundColor/colors/background = Color(1, 1, 1, 1)
+Button/colors/font_color = Color(0, 0, 0, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_sapw8")
 Panel/styles/panel = SubResource("StyleBoxFlat_obw1x")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_obw1x")

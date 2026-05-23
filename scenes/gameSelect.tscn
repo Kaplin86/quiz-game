@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://ds1iyc83b8pe1"]
+
+[ext_resource type="Texture2D" uid="uid://hw7mdl32luvb" path="res://icon.svg" id="1_yn71f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8336p"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="GameSelect" type="Control" unique_id=898733152]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=478130292]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.09
+anchor_right = 0.97
+anchor_bottom = 0.91
+theme_override_styles/panel = SubResource("StyleBoxFlat_8336p")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=192977466]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 1079.0
+offset_bottom = 528.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer" unique_id=1500944687]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Quiz" type="PanelContainer" parent="Panel/ScrollContainer/HBoxContainer" unique_id=1087424319]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/HBoxContainer/Quiz" unique_id=963371456]
+custom_minimum_size = Vector2(176.25, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/HBoxContainer/Quiz/VBoxContainer" unique_id=1440084072]
+layout_mode = 2
+theme_override_font_sizes/font_size = 44
+text = "Quiz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/ScrollContainer/HBoxContainer/Quiz/VBoxContainer" unique_id=2070429866]
+layout_mode = 2
+texture = ExtResource("1_yn71f")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/ScrollContainer/HBoxContainer/Quiz/VBoxContainer" unique_id=1195289794]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Generates a multi-choice quiz based on your dataset. 
+(Requires 1 Incorrect Answer Column)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="Panel/ScrollContainer/HBoxContainer/Quiz/VBoxContainer" unique_id=264902108]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_font_sizes/font_size = 52
+text = "Play"
+
+[node name="Disabled" type="ColorRect" parent="Panel/ScrollContainer/HBoxContainer/Quiz" unique_id=410919792]
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0, 0.6117647)
