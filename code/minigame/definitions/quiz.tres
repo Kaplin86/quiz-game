@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GameDefinition" format=3 uid="uid://blhwwv6xsbv6e"]
+
+[ext_resource type="Script" uid="uid://ei0cwrvkccko" path="res://code/minigame/gameDefinition.gd" id="1_ybxoa"]
+
+[resource]
+script = ExtResource("1_ybxoa")
+gameName = "Quiz"
+gameDescription = "Turns your dataset into a [b] multi-choice quiz[/b]
+[i]Requires atleast 1 incorrect column.[/i]"
+query = "incorrectColumn.length|!=|0"
+metadata/_custom_type_script = "uid://ei0cwrvkccko"

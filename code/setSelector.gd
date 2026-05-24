@@ -29,6 +29,7 @@ func setSelected(button : BaseButton):
 	for I in get_tree().get_nodes_in_group("requireDataset"):
 		I.disabled = false
 	selectedQuiz = button.get_meta("quiz",null)
+	
 
 
 func sortCreation(a : Quiz, b: Quiz):
@@ -64,3 +65,7 @@ func pressedSelected():
 
 func _on_option_button_item_selected(index):
 	ThemeController.currentTheme = themeButton.get_item_metadata(index)
+
+
+func _on_remove_pressed():
+	pass # Replace with function body.

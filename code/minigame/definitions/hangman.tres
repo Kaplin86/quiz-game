@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GameDefinition" format=3 uid="uid://ceoeqae7utn4j"]
+
+[ext_resource type="Script" uid="uid://ei0cwrvkccko" path="res://code/minigame/gameDefinition.gd" id="1_8y036"]
+
+[resource]
+script = ExtResource("1_8y036")
+gameName = "Hangman"
+gameDescription = "Turns your dataset into a game of [b] hangman[/b]
+[i]Requires atleast 1 question where the answer is under 15 letters[/i]"
+query = "question.answer.length|<=|15"
+metadata/_custom_type_script = "uid://ei0cwrvkccko"

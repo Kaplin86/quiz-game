@@ -37,20 +37,35 @@ func _init(src : String = "", question : Array[Question]= [], questionCol : int=
 
 ## A function that returns a boolean based on passed info. You give it something such as "answerColumn|>|1", and it will return that. You can also pass in querys for questions using "questions.XYZ"
 func checkProperty(property = "") -> bool:
+	if property == "":
+		return true
 	var parts = property.split("|")
-	var current = parts[0]
+	var current  = parts[0]
 	
-	if current.begins_with("questions."):
+	if current.begins_with("question."):
 		var value = int(parts[2])
 		var type = parts[1]
-		var key = current.replace("questions.","")
+		var key = current.replace("question.","")
 		for I in questions:
-			current = I.get(key)
-			if !_getBoolFromStatement(current,value,type):
-				return false
-		return true
+			var lengthCheck = key.contains(".length")
+			current = I.get(key.replace(".length",""))
+			if lengthCheck:
+				if current is Array:
+					current = current.size()
+				else:
+					current = current.length()
+			
+			if _getBoolFromStatement(current,value,type):
+				return true
+		return false
 	else:
-		current = self.get(current)
+		var lengthCheck = current.contains(".length")
+		current = self.get(current.replace(".length",""))
+		if lengthCheck:
+			if current is Array:
+				current = current.size()
+			else:
+				current = current.length()
 	
 	var value = int(parts[2])
 	var type = parts[1]
@@ -68,5 +83,7 @@ func _getBoolFromStatement(current,value,type):
 			return current <= value
 		">=":
 			return current >= value
+		"!=":
+			return current != value
 		_:
 			return false

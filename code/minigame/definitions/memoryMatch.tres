@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GameDefinition" format=3 uid="uid://wb1w8xu4qxvx"]
+
+[ext_resource type="Script" uid="uid://ei0cwrvkccko" path="res://code/minigame/gameDefinition.gd" id="1_8sfon"]
+
+[resource]
+script = ExtResource("1_8sfon")
+gameName = "Memory Match"
+gameDescription = "Turns your dataset into a [b] memory-match game[/b]
+[i]Requires atleast 4 questions.[/i]"
+query = "questions.length|>=|4"
+metadata/_custom_type_script = "uid://ei0cwrvkccko"
