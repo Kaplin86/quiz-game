@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ds1iyc83b8pe1"]
 
-[ext_resource type="Script" uid="uid://dp8i7lx1ix0sc" path="res://scenes/game_select.gd" id="1_h2o1e"]
+[ext_resource type="Script" uid="uid://dp8i7lx1ix0sc" path="res://code/game_select.gd" id="1_h2o1e"]
 [ext_resource type="Script" uid="uid://ei0cwrvkccko" path="res://code/minigame/gameDefinition.gd" id="2_lka0x"]
 [ext_resource type="Resource" uid="uid://dmkis2dmlnt22" path="res://code/minigame/definitions/flashcards.tres" id="3_tnhfy"]
 [ext_resource type="Resource" uid="uid://ceoeqae7utn4j" path="res://code/minigame/definitions/hangman.tres" id="4_518wh"]

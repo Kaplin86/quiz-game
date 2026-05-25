@@ -5,7 +5,9 @@ class_name QuestionImporterNode
 
 signal _endRequest(file : String)
 
+@warning_ignore("unused_private_class_variable")
 var _questionPathHold = ""
+
 ## A variable meant to move data across. Does not serve a function within a standalone question importer.
 var loadedQuiz : Quiz
 

@@ -7,5 +7,6 @@ script = ExtResource("1_ybxoa")
 gameName = "Quiz"
 gameDescription = "Turns your dataset into a [b] multi-choice quiz[/b]
 [i]Requires atleast 1 incorrect column.[/i]"
+scenelocation = "uid://dowswdsxf14kh"
 query = "incorrectColumn.length|!=|0"
 metadata/_custom_type_script = "uid://ei0cwrvkccko"

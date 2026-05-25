@@ -12,6 +12,8 @@ class_name Question
 ## Optional reason on why answer is correct.
 @export var answerReason : String = ""
 
+## The history of whether the person got this question right or wrong. This should not be shared on export and only be saved locally.
+@export var history : Array[bool] = []
 
 func _init(quest := "",answ := ""):
 	question = quest

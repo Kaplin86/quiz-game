@@ -43,8 +43,8 @@ func checkProperty(property = "") -> bool:
 	var current  = parts[0]
 	
 	if current.begins_with("question."):
-		var value = int(parts[2])
-		var type = parts[1]
+		var qvalue = int(parts[2])
+		var qtype = parts[1]
 		var key = current.replace("question.","")
 		for I in questions:
 			var lengthCheck = key.contains(".length")
@@ -55,7 +55,7 @@ func checkProperty(property = "") -> bool:
 				else:
 					current = current.length()
 			
-			if _getBoolFromStatement(current,value,type):
+			if _getBoolFromStatement(current,qvalue,qtype):
 				return true
 		return false
 	else:

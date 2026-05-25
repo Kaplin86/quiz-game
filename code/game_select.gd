@@ -16,6 +16,7 @@ func _ready():
 			highestX = newGamecard.get_combined_minimum_size().x
 		if !QuestionImporter.loadedQuiz.checkProperty(game.query):
 			newGamecard.get_child(1).visible = true
+		
 	
 	for I in gameNodes:
 		I.custom_minimum_size.x = highestX
