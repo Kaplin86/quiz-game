@@ -27,5 +27,7 @@ corner_radius_bottom_left = 3
 resource_name = "Watermelon"
 BackgroundColor/colors/background = Color(0.20392157, 0, 0.101960786, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_sapw8")
+MasteryTracker/colors/correct = Color(0.3538968, 0.49073577, 0.14160654, 1)
+MasteryTracker/colors/incorrect = Color(0.44434893, 2.4065375e-08, 0.24771014, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_obw1x")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_obw1x")

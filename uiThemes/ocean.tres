@@ -27,5 +27,7 @@ corner_radius_bottom_left = 3
 resource_name = "Ocean"
 BackgroundColor/colors/background = Color(0, 0.1254902, 0.16078432, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_sapw8")
+MasteryTracker/colors/correct = Color(9.62615e-07, 0.6063173, 0.7356352, 1)
+MasteryTracker/colors/incorrect = Color(0, 0.35333323, 0.53, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_obw1x")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_obw1x")

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b6poxd5c2nx3y"]
 
 [ext_resource type="Script" uid="uid://dibk2dugg5wks" path="res://code/setSelector.gd" id="1_qo2up"]
+[ext_resource type="Script" uid="uid://dd44ndquv3vxf" path="res://scenes/masteryDisplay.gd" id="2_ttnu4"]
+[ext_resource type="Texture2D" uid="uid://b2uumrbrpvq66" path="res://visuals/circle.svg" id="3_2pb5y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_882sy"]
 content_margin_left = 10.0
@@ -19,7 +21,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 17
 corner_detail = 5
 
-[node name="Control" type="Control" unique_id=1724904484 node_paths=PackedStringArray("quizBox", "themeButton")]
+[node name="Control" type="Control" unique_id=1724904484 node_paths=PackedStringArray("quizBox", "themeButton", "masteryDisplay")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +31,7 @@ grow_vertical = 2
 script = ExtResource("1_qo2up")
 quizBox = NodePath("Panel/Panel/Panel2/Vbox")
 themeButton = NodePath("Panel/Panel2/MarginContainer/VBoxContainer/Theme/OptionButton")
+masteryDisplay = NodePath("Panel/Panel2/MarginContainer/VBoxContainer/Control/VBoxContainer/Control")
 
 [node name="Panel" type="HBoxContainer" parent="." unique_id=1177095741]
 layout_mode = 1
@@ -109,6 +112,35 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Panel2/MarginContainer/VBoxContainer/Control" unique_id=405423173]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Panel2/MarginContainer/VBoxContainer/Control/VBoxContainer" unique_id=1112925946]
+layout_mode = 2
+text = "Mastery  Status"
+horizontal_alignment = 1
+
+[node name="Control" type="CenterContainer" parent="Panel/Panel2/MarginContainer/VBoxContainer/Control/VBoxContainer" unique_id=1145433881]
+layout_mode = 2
+script = ExtResource("2_ttnu4")
+
+[node name="Correct" type="TextureProgressBar" parent="Panel/Panel2/MarginContainer/VBoxContainer/Control/VBoxContainer/Control" unique_id=240027847]
+layout_mode = 2
+max_value = 360.0
+fill_mode = 4
+texture_progress = ExtResource("3_2pb5y")
+
+[node name="Incorrect" type="TextureProgressBar" parent="Panel/Panel2/MarginContainer/VBoxContainer/Control/VBoxContainer/Control" unique_id=1923478949]
+layout_mode = 2
+max_value = 360.0
+fill_mode = 4
+texture_progress = ExtResource("3_2pb5y")
+
 [node name="Theme" type="HBoxContainer" parent="Panel/Panel2/MarginContainer/VBoxContainer" unique_id=67017341]
 layout_mode = 2
 
@@ -122,4 +154,5 @@ size_flags_horizontal = 3
 
 [connection signal="pressed" from="Panel/Panel2/MarginContainer/VBoxContainer/New" to="." method="promptNewSet"]
 [connection signal="pressed" from="Panel/Panel2/MarginContainer/VBoxContainer/Play" to="." method="pressedSelected"]
+[connection signal="theme_changed" from="Panel/Panel2/MarginContainer/VBoxContainer/Control/VBoxContainer/Control" to="Panel/Panel2/MarginContainer/VBoxContainer/Control/VBoxContainer/Control" method="_on_theme_changed"]
 [connection signal="item_selected" from="Panel/Panel2/MarginContainer/VBoxContainer/Theme/OptionButton" to="." method="_on_option_button_item_selected"]

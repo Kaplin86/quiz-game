@@ -6,6 +6,7 @@ var selectedQuiz : Quiz
 
 @export var quizBox : VBoxContainer
 @export var themeButton : OptionButton
+@export var masteryDisplay : MasteryDisplay
 
 func promptNewSet():
 	var path = await QuestionImporter.locateCSV()
@@ -29,7 +30,7 @@ func setSelected(button : BaseButton):
 	for I in get_tree().get_nodes_in_group("requireDataset"):
 		I.disabled = false
 	selectedQuiz = button.get_meta("quiz",null)
-	
+	masteryDisplay.displayQuiz(selectedQuiz)
 
 
 func sortCreation(a : Quiz, b: Quiz):

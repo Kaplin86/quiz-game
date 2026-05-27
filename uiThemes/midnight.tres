@@ -27,5 +27,7 @@ corner_radius_bottom_left = 3
 resource_name = "Midnight"
 BackgroundColor/colors/background = Color(0.06666667, 0, 0.10980392, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_sapw8")
+MasteryTracker/colors/correct = Color(0.85490197, 0.79607844, 0.99215686, 1)
+MasteryTracker/colors/incorrect = Color(0.5183497, 0.25717163, 0.6801782, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_obw1x")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_obw1x")
