@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://cgk5kjse34i21"]
+
+[ext_resource type="Script" uid="uid://dfupddidnb15q" path="res://code/minigame/flashcardGame.gd" id="1_1x3uw"]
+[ext_resource type="Texture2D" uid="uid://efvsedjwtby3" path="res://visuals/incorrect.svg" id="2_85v2y"]
+[ext_resource type="Texture2D" uid="uid://cw7g2kc7o5b6x" path="res://visuals/correct.svg" id="3_nt8di"]
+
+[node name="Control" type="Control" unique_id=1604900140 node_paths=PackedStringArray("cardNode", "cardText", "countDisplay")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1x3uw")
+cardNode = NodePath("Node2D")
+cardText = NodePath("Node2D/Panel/MarginContainer/RichTextLabel")
+countDisplay = NodePath("CountDisplay")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=172116320]
+position = Vector2(576, 236)
+
+[node name="Panel" type="Panel" parent="Node2D" unique_id=1872300968]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.5
+offset_top = -139.0
+offset_right = 277.5
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Node2D/Panel" unique_id=236168667]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Node2D/Panel/MarginContainer" unique_id=1466864726]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 21
+text = "gdafgadfgadfgadfgadfgafg"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Flip" type="Button" parent="Node2D" unique_id=1877303464]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Incorrect" type="Button" parent="." unique_id=1225959786]
+modulate = Color(0.50534403, 0.5053441, 0.50534403, 1)
+layout_mode = 0
+offset_left = 414.0
+offset_top = 388.0
+offset_right = 569.0
+offset_bottom = 543.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Incorrect" unique_id=159993255]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="Incorrect/MarginContainer" unique_id=993544847]
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_85v2y")
+
+[node name="Correct" type="Button" parent="." unique_id=203082011]
+modulate = Color(1.9492692, 1.9492692, 1.9492692, 1)
+layout_mode = 0
+offset_left = 584.0
+offset_top = 388.0
+offset_right = 739.0
+offset_bottom = 543.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Correct" unique_id=875968791]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="Correct/MarginContainer" unique_id=135159189]
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_nt8di")
+
+[node name="CountDisplay" type="Label" parent="." unique_id=1472436751]
+layout_mode = 0
+offset_left = 299.0
+offset_top = 69.0
+offset_right = 854.0
+offset_bottom = 92.0
+text = "1/4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Node2D/Flip" to="." method="_on_flip_pressed"]
+[connection signal="pressed" from="Incorrect" to="." method="_on_incorrect_pressed"]
+[connection signal="pressed" from="Correct" to="." method="_on_correct_pressed"]

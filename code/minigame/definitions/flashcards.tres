@@ -6,4 +6,5 @@
 script = ExtResource("1_0qwdn")
 gameName = "Flashcards"
 gameDescription = "Turns your dataset into [b] flashcards [/b] for practicing."
+scenelocation = "uid://cgk5kjse34i21"
 metadata/_custom_type_script = "uid://ei0cwrvkccko"

@@ -19,6 +19,7 @@ func _ready() -> void:
 		await displayQuestion(quest,i,questions.size())
 	
 	ResourceSaver.save(quiz)
+	get_tree().change_scene_to_file("res://scenes/setSelector.tscn")
 
 func displayQuestion(question : Question,count,maxVal):
 	print(question.history)
