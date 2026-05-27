@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://ctnb7rsvvguc8"]
+
+[ext_resource type="Script" uid="uid://qxo2ofla6126" path="res://code/minigame/spellingGame.gd" id="1_3264y"]
+[ext_resource type="PackedScene" uid="uid://cqcl2m5bxett8" path="res://scenes/spellingLetter.tscn" id="2_7tai8"]
+
+[node name="Control" type="Control" unique_id=486431549 node_paths=PackedStringArray("grid", "textLabel", "timer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3264y")
+grid = NodePath("VBoxContainer/Word")
+textLabel = NodePath("CenterContainer/RichTextLabel")
+timer = NodePath("Timer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=223865280]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 575.0
+offset_bottom = 617.0
+alignment = 2
+
+[node name="Word" type="GridContainer" parent="VBoxContainer" unique_id=1857612521]
+layout_mode = 2
+columns = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1048712567]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 178.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer" unique_id=2012306477]
+z_index = 2
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 22
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1716350239]
+
+[node name="Control" parent="." unique_id=608367729 instance=ExtResource("2_7tai8")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 573.0
+offset_top = 290.0
+offset_right = 622.5
+offset_bottom = 335.5
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

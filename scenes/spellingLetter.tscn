@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cqcl2m5bxett8"]
+
+[ext_resource type="Texture2D" uid="uid://cpfoij6bj7ban" path="res://visuals/spin.svg" id="1_giqkw"]
+[ext_resource type="Script" uid="uid://bsg1j0mtrnydo" path="res://code/minigame/spellingGameLetter.gd" id="1_jmd78"]
+
+[sub_resource type="Animation" id="Animation_jmd78"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spin:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_scbvr"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spin:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0rda2"]
+_data = {
+&"RESET": SubResource("Animation_jmd78"),
+&"spin": SubResource("Animation_scbvr")
+}
+
+[node name="Control" type="Button" unique_id=608367729]
+custom_minimum_size = Vector2(49.5, 45.5)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1102.5
+offset_bottom = -602.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "A"
+script = ExtResource("1_jmd78")
+
+[node name="Spin" type="Sprite2D" parent="." unique_id=1816504051]
+show_behind_parent = true
+position = Vector2(24.5, 23.5)
+scale = Vector2(0.5437724, 0.5437724)
+texture = ExtResource("1_giqkw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1646553874]
+libraries/ = SubResource("AnimationLibrary_0rda2")
