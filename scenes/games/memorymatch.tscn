@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bln05tbugjvnu"]
+
+[ext_resource type="Script" uid="uid://nibkvg1n7i1b" path="res://code/minigame/memorymatchGame.gd" id="1_38h10"]
+
+[node name="Control" type="Control" unique_id=817340844 node_paths=PackedStringArray("grid", "attempts", "recordAttempts")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_38h10")
+grid = NodePath("Panel/GridContainer/CenterContainer/GridContainer")
+attempts = NodePath("Panel/Panel/MarginContainer/VBoxContainer/Attempts")
+recordAttempts = NodePath("Panel/Panel/MarginContainer/VBoxContainer/AttemptsRecord")
+
+[node name="Panel" type="HBoxContainer" parent="." unique_id=1173538685]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.026234567
+anchor_right = 0.984
+anchor_bottom = 0.974
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Panel" unique_id=591447022]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Panel" unique_id=521520607]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Panel/MarginContainer" unique_id=64194678]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Panel/MarginContainer/VBoxContainer" unique_id=1196187171]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 51
+text = "MEMORY MATCH"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Panel/Panel/MarginContainer/VBoxContainer" unique_id=1802899090]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Panel/MarginContainer/VBoxContainer" unique_id=70425695]
+layout_mode = 2
+text = "Choose two tiles to flip over, and try to remember what they say! If you choose the right question and answer, you \"beat\" the questions. Beat all the questions in the lowest amount of attempts!"
+fit_content = true
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/Panel/MarginContainer/VBoxContainer" unique_id=1482688536]
+layout_mode = 2
+
+[node name="Attempts" type="Label" parent="Panel/Panel/MarginContainer/VBoxContainer" unique_id=1890456116]
+layout_mode = 2
+text = "Attempts: 0"
+
+[node name="AttemptsRecord" type="Label" parent="Panel/Panel/MarginContainer/VBoxContainer" unique_id=928084108]
+layout_mode = 2
+text = "Attempts: "
+
+[node name="GridContainer" type="MarginContainer" parent="Panel" unique_id=861902229]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/GridContainer" unique_id=1784599699]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Panel/GridContainer/CenterContainer" unique_id=42315208]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4

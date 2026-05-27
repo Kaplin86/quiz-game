@@ -17,8 +17,12 @@ class_name Quiz
 @export var descColumn : int = -1
 
 @export var _hash = ""
+## The saved creation date. A unix value from the system set on creation.
 @export var creationDate : float
+## The display name for the set. By default, its the basename of the file.
 @export var displayName : String
+## The saved memory match low score. Changed by memory match.
+@export var memoryMatchLowScore : int = 999
 
 func _init(src : String = "", question : Array[Question]= [], questionCol : int= -1, answerCol : int= -1, incorrectCol : Array[int] = [], descCol : int = -1):
 	if src == "":

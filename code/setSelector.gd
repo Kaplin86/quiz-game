@@ -7,6 +7,7 @@ var selectedQuiz : Quiz
 @export var quizBox : VBoxContainer
 @export var themeButton : OptionButton
 @export var masteryDisplay : MasteryDisplay
+@export var memoryMatchLowScore : Label
 
 func promptNewSet():
 	var path = await QuestionImporter.locateCSV()
@@ -20,6 +21,7 @@ func _ready():
 	loadQuizs()
 	buttonGroup.connect("pressed",setSelected)
 	loadThemes()
+	memoryMatchLowScore.visible = false
 
 func loadThemes():
 	for iTheme : Theme in ThemeController.themes:
@@ -31,6 +33,11 @@ func setSelected(button : BaseButton):
 		I.disabled = false
 	selectedQuiz = button.get_meta("quiz",null)
 	masteryDisplay.displayQuiz(selectedQuiz)
+	if selectedQuiz.memoryMatchLowScore != 999:
+		memoryMatchLowScore.visible = true
+		memoryMatchLowScore.text = "Memory Match Lowscore: " + str(selectedQuiz.memoryMatchLowScore)
+	else:
+		memoryMatchLowScore.visible = false
 
 
 func sortCreation(a : Quiz, b: Quiz):

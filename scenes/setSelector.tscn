@@ -21,7 +21,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 17
 corner_detail = 5
 
-[node name="Control" type="Control" unique_id=1724904484 node_paths=PackedStringArray("quizBox", "themeButton", "masteryDisplay")]
+[node name="Control" type="Control" unique_id=1724904484 node_paths=PackedStringArray("quizBox", "themeButton", "masteryDisplay", "memoryMatchLowScore")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,6 +32,7 @@ script = ExtResource("1_qo2up")
 quizBox = NodePath("Panel/Panel/Panel2/Vbox")
 themeButton = NodePath("Panel/Panel2/MarginContainer/VBoxContainer/Theme/OptionButton")
 masteryDisplay = NodePath("Panel/Panel2/MarginContainer/VBoxContainer/Control/VBoxContainer/Control")
+memoryMatchLowScore = NodePath("Panel/Panel2/MarginContainer/VBoxContainer/Control/VBoxContainer/Memory Match Lowscore")
 
 [node name="Panel" type="HBoxContainer" parent="." unique_id=1177095741]
 layout_mode = 1
@@ -98,7 +99,7 @@ text = "Remove Dataset"
 [node name="Redefine" type="Button" parent="Panel/Panel2/MarginContainer/VBoxContainer" unique_id=1544954112 groups=["requireDataset"]]
 layout_mode = 2
 disabled = true
-text = "Redefine Columns"
+text = "Edit Columns"
 
 [node name="Export" type="Button" parent="Panel/Panel2/MarginContainer/VBoxContainer" unique_id=1022481019 groups=["requireDataset"]]
 layout_mode = 2
@@ -140,6 +141,9 @@ layout_mode = 2
 max_value = 360.0
 fill_mode = 4
 texture_progress = ExtResource("3_2pb5y")
+
+[node name="Memory Match Lowscore" type="Label" parent="Panel/Panel2/MarginContainer/VBoxContainer/Control/VBoxContainer" unique_id=1666349371]
+layout_mode = 2
 
 [node name="Theme" type="HBoxContainer" parent="Panel/Panel2/MarginContainer/VBoxContainer" unique_id=67017341]
 layout_mode = 2

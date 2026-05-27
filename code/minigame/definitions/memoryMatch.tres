@@ -7,5 +7,6 @@ script = ExtResource("1_8sfon")
 gameName = "Memory Match"
 gameDescription = "Turns your dataset into a [b] memory-match game[/b]
 [i]Requires atleast 4 questions.[/i]"
+scenelocation = "uid://bln05tbugjvnu"
 query = "questions.length|>=|4"
 metadata/_custom_type_script = "uid://ei0cwrvkccko"
