@@ -41,6 +41,7 @@ _data = {
 }
 
 [node name="Control" type="Button" unique_id=608367729]
+self_modulate = Color(1, 1, 1, 0.91764706)
 custom_minimum_size = Vector2(49.5, 45.5)
 anchors_preset = 15
 anchor_right = 1.0

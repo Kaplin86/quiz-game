@@ -8,6 +8,7 @@ extends Control
 @export var spawnSpeed = 5
 @export var maxAnswerableWord = 7
 
+@export var difficultyScaling = 0.3
 @export var timer : Timer
 
 var wordLookingFor := ""
@@ -16,7 +17,14 @@ var processingArray := []
 var index = 0
 
 var spellingLetter = preload("res://scenes/spellingLetter.tscn")
-signal letterPressed
+signal letterPressed(letter : String)
+
+var alphabet : PackedStringArray = "abcdefghijklmnopqrstuvwxyz1234567890".split("")
+var alphabet_upper : PackedStringArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split("")
+
+var difficulty = 1.0
+
+var buttons = []
 
 func _ready() -> void:
 	timer.stop()
@@ -39,9 +47,12 @@ func _ready() -> void:
 	get_tree().change_scene_to_file("res://scenes/setSelector.tscn")
 
 func displayQuestion(question : Question, indexy : int, maxCount : int):
+	difficulty = 1.0
 	index = 0
 	textLabel.text = question.question
 	wordLookingFor = question.answer
+	processingArray = []
+	wordArray = []
 	for I in wordLookingFor:
 		processingArray.append(I)
 		wordArray.append(I)
@@ -66,15 +77,27 @@ func displayQuestion(question : Question, indexy : int, maxCount : int):
 			for I in distance:
 				processingArray[processingArray.size() - (I + 1)] = null
 	
-	timer.wait_time = 1
+	timer.wait_time = float(maxAnswerableWord - (difficulty * 1/difficultyScaling)) / 2
 	timer.start()
-	
+	displayStuffs()
 	var exit = false
 	while !exit:
-		var letter = await letterPressed
-	displayStuffs()
-	spellingLetter
-
+		print("back to await")
+		await letterPressed
+		print("wow a letter was pressed!")
+		difficulty += difficultyScaling
+		clearRemainingLetter()
+		print("lets display some new junk")
+		displayStuffs()
+		print("wait time")
+		timer.wait_time = ((maxAnswerableWord - (difficulty * 2)) / 2)
+		if getRemainingWholeLetters() == 0:
+			exit = true
+	
+	print("finish!")
+	for I in buttons:
+		if I:
+			I.explode()
 
 func displayStuffs():
 	for I in grid.get_children():
@@ -109,6 +132,65 @@ func displayStuffs():
 func _on_timer_timeout():
 	var newSpawnLetter = spellingLetter.instantiate()
 	add_child(newSpawnLetter)
+	buttons.append(newSpawnLetter)
 	newSpawnLetter.global_position = Vector2(573.0,290)
 	newSpawnLetter.direction = randf_range(-PI,PI)
-	newSpawnLetter.speed = randf_range(30,30)
+	newSpawnLetter.speed = randf_range(25,30 * difficulty)
+	newSpawnLetter.dirSpeed = randf_range(0,0.5 * difficulty)
+	newSpawnLetter.modulate = Color.TRANSPARENT
+	var newTween = create_tween()
+	newTween.bind_node(newSpawnLetter)
+	newTween.tween_property(newSpawnLetter,"modulate",Color.WHITE,2)
+	newTween.tween_interval(randi_range(4,10))
+	newTween.tween_property(newSpawnLetter,"modulate",Color.TRANSPARENT,2)
+	newTween.tween_callback(newSpawnLetter.queue_free)
+	var letters : PackedStringArray = alphabet.duplicate()
+	var letterNeed = getNextNeededLetter()
+	if letterNeed.to_upper() == letterNeed:
+		letters = alphabet_upper
+	
+	var finalLetter = " "
+	var odds = 10 * ((1+wordArray.size()-getRemainingWholeLetters())/wordArray.size()) #when there is only one letter remaining, this should return 10
+	if randi_range(-1,int(odds * 1.2)) == 0:
+		finalLetter = letterNeed
+	else:
+		finalLetter = letters.get(randi_range(0,letters.size() - 1))
+	
+	newSpawnLetter.text = finalLetter
+	newSpawnLetter.connect("pressed",pressedLetter.bind(finalLetter,newSpawnLetter))
+
+func pressedLetter(letter : String, node : Button):
+	print("next needed is ", getNextNeededLetter())
+	buttons.erase(node)
+	if node.text != getNextNeededLetter():
+		node.explode()
+	else:
+		print("wowie what a press!")
+		letterPressed.emit(letter)
+		node.absorb()
+
+func getRemainingWholeLetters():
+	var count = 0
+	for I in processingArray:
+		if I != null and I != " ":
+			count += 1
+	return count
+
+func getClearedLetters():
+	return processingArray.size() - getRemainingWholeLetters()
+
+func getNextNeededLetter() -> String:
+	for I in processingArray:
+		if I != null and I != " ":
+			return I
+	return " "
+
+func clearRemainingLetter():
+	print("lets clear!")
+	for I in processingArray.size():
+		if processingArray[I] != null:
+			if processingArray[I] == " ":
+				processingArray[I] = null
+			else:
+				processingArray[I] = null
+				return
