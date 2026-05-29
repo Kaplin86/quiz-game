@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="GameDefinition" format=3 uid="uid://ceoeqae7utn4j"]
 
+[ext_resource type="Texture2D" uid="uid://drwdcks2n280g" path="res://visuals/gamePreviews/spellingPreview.PNG" id="1_ba5gv"]
 [ext_resource type="Script" uid="uid://ei0cwrvkccko" path="res://code/minigame/gameDefinition.gd" id="1_bwvxn"]
 
 [resource]
@@ -9,4 +10,5 @@ gameDescription = "Turns your dataset into a [b]Spelling game [/b]
 [i]Requires atleast 1 question where the answer is under 15 letters[/i]"
 scenelocation = "uid://ctnb7rsvvguc8"
 query = "question.answer.length|<=|15"
+previewImage = ExtResource("1_ba5gv")
 metadata/_custom_type_script = "uid://ei0cwrvkccko"

@@ -7,12 +7,14 @@ class_name GameDefinition
 @export_multiline() var gameDescription := ""
 @export_file("*.tscn") var scenelocation := ""
 @export var query = ""
+@export var previewImage : Texture2D
 
 func apply(node : Control):
 	var name = node.find_child("Name",true,true)
-	print(name)
 	var desc = node.find_child("Description",true)
 	if name: if name is Label: name.text = gameName
 	if desc: if desc is RichTextLabel: desc.text = gameDescription
 	var play = node.find_child("Play",true)
 	if play: if play is Button: play.connect("pressed",func():play.get_tree().change_scene_to_file(scenelocation))
+	var texture = node.find_child("TextureRect",true)
+	if texture: if texture is TextureRect: texture.texture = previewImage

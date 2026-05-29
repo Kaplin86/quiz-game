@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="GameDefinition" format=3 uid="uid://blhwwv6xsbv6e"]
 
+[ext_resource type="Texture2D" uid="uid://qaiowd11lnsd" path="res://visuals/gamePreviews/QuizPreview.PNG" id="1_tcw6a"]
 [ext_resource type="Script" uid="uid://ei0cwrvkccko" path="res://code/minigame/gameDefinition.gd" id="1_ybxoa"]
 
 [resource]
@@ -9,4 +10,5 @@ gameDescription = "Turns your dataset into a [b] multi-choice quiz[/b]
 [i]Requires atleast 1 incorrect column.[/i]"
 scenelocation = "uid://dowswdsxf14kh"
 query = "incorrectColumn.length|!=|0"
+previewImage = ExtResource("1_tcw6a")
 metadata/_custom_type_script = "uid://ei0cwrvkccko"

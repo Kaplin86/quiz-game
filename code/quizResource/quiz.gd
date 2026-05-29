@@ -23,6 +23,8 @@ class_name Quiz
 @export var displayName : String
 ## The saved memory match low score. Changed by memory match.
 @export var memoryMatchLowScore : int = 999
+## A variable that determines whether the quiz is visible on the selector screen. Should only be used if
+@export var hidden = false
 
 func _init(src : String = "", question : Array[Question]= [], questionCol : int= -1, answerCol : int= -1, incorrectCol : Array[int] = [], descCol : int = -1):
 	if src == "":

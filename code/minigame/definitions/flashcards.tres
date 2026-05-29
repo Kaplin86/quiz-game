@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="GameDefinition" format=3 uid="uid://dmkis2dmlnt22"]
 
 [ext_resource type="Script" uid="uid://ei0cwrvkccko" path="res://code/minigame/gameDefinition.gd" id="1_0qwdn"]
+[ext_resource type="Texture2D" uid="uid://xuhpgfuipywj" path="res://visuals/gamePreviews/flashcardPreview.PNG" id="1_y0ap7"]
 
 [resource]
 script = ExtResource("1_0qwdn")
 gameName = "Flashcards"
 gameDescription = "Turns your dataset into [b] flashcards [/b] for practicing."
 scenelocation = "uid://cgk5kjse34i21"
+previewImage = ExtResource("1_y0ap7")
 metadata/_custom_type_script = "uid://ei0cwrvkccko"

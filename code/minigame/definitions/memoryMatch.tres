@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="GameDefinition" format=3 uid="uid://wb1w8xu4qxvx"]
 
 [ext_resource type="Script" uid="uid://ei0cwrvkccko" path="res://code/minigame/gameDefinition.gd" id="1_8sfon"]
+[ext_resource type="Texture2D" uid="uid://bm23mxubl4hyc" path="res://visuals/gamePreviews/memorymatchPreview.PNG" id="1_ocw6r"]
 
 [resource]
 script = ExtResource("1_8sfon")
@@ -9,4 +10,5 @@ gameDescription = "Turns your dataset into a [b] memory-match game[/b]
 [i]Requires atleast 4 questions.[/i]"
 scenelocation = "uid://bln05tbugjvnu"
 query = "questions.length|>=|4"
+previewImage = ExtResource("1_ocw6r")
 metadata/_custom_type_script = "uid://ei0cwrvkccko"

@@ -158,5 +158,6 @@ size_flags_horizontal = 3
 
 [connection signal="pressed" from="Panel/Panel2/MarginContainer/VBoxContainer/New" to="." method="promptNewSet"]
 [connection signal="pressed" from="Panel/Panel2/MarginContainer/VBoxContainer/Play" to="." method="pressedSelected"]
+[connection signal="pressed" from="Panel/Panel2/MarginContainer/VBoxContainer/Remove" to="." method="removeSelected"]
 [connection signal="theme_changed" from="Panel/Panel2/MarginContainer/VBoxContainer/Control/VBoxContainer/Control" to="Panel/Panel2/MarginContainer/VBoxContainer/Control/VBoxContainer/Control" method="_on_theme_changed"]
 [connection signal="item_selected" from="Panel/Panel2/MarginContainer/VBoxContainer/Theme/OptionButton" to="." method="_on_option_button_item_selected"]

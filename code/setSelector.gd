@@ -14,8 +14,19 @@ func promptNewSet():
 	if path == "":
 		return
 	
-	QuestionImporter._questionPathHold = path
-	get_tree().change_scene_to_file("res://scenes/setColumns.tscn")
+	var foundPathQuiz=null
+	for I in loadedQuizs:
+		if I.sourcePath == path:
+			foundPathQuiz = I
+			break
+	
+	if foundPathQuiz:
+		foundPathQuiz.hidden = false
+		ResourceSaver.save(foundPathQuiz)
+		loadQuizs()
+	else:
+		QuestionImporter._questionPathHold = path
+		get_tree().change_scene_to_file("res://scenes/setColumns.tscn")
 
 func _ready():
 	loadQuizs()
@@ -48,6 +59,7 @@ func sortCreation(a : Quiz, b: Quiz):
 
 
 func loadQuizs():
+	loadedQuizs.clear()
 	var filePaths = DirAccess.open("user://").get_files()
 	for filePath in filePaths:
 		if filePath.get_extension() == "tres":
@@ -57,13 +69,17 @@ func loadQuizs():
 	
 	loadedQuizs.sort_custom(sortCreation)
 	
+	for i in quizBox.get_children():i.queue_free()
+	
 	for quiz : Quiz in loadedQuizs:
-		var newButton = Button.new()
-		newButton.toggle_mode = true
-		newButton.button_group = buttonGroup
-		newButton.text = quiz.displayName
-		quizBox.add_child(newButton)
-		newButton.set_meta("quiz",quiz)
+		if !quiz.hidden:
+			var newButton = Button.new()
+			newButton.toggle_mode = true
+			newButton.button_group = buttonGroup
+			newButton.text = quiz.displayName
+			quizBox.add_child(newButton)
+			newButton.set_meta("quiz",quiz)
+			newButton.tooltip_text = quiz.sourcePath
 
 
 func pressedSelected():
@@ -74,6 +90,7 @@ func pressedSelected():
 func _on_option_button_item_selected(index):
 	ThemeController.currentTheme = themeButton.get_item_metadata(index)
 
-
-func _on_remove_pressed():
-	pass # Replace with function body.
+func removeSelected():
+	selectedQuiz.hidden = true
+	ResourceSaver.save(selectedQuiz)
+	loadQuizs()
