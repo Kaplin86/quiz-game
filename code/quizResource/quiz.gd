@@ -93,3 +93,10 @@ func _getBoolFromStatement(current,value,type):
 			return current != value
 		_:
 			return false
+
+## Returns a question of the quiz, determined by an exact match in question.
+func getQuestionByText(question : String) -> Question:
+	for questionData in questions:
+		if questionData.question == question:
+			return questionData
+	return null

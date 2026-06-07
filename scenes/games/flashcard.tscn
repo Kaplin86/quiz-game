@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dfupddidnb15q" path="res://code/minigame/flashcardGame.gd" id="1_1x3uw"]
 [ext_resource type="Texture2D" uid="uid://efvsedjwtby3" path="res://visuals/incorrect.svg" id="2_85v2y"]
 [ext_resource type="Texture2D" uid="uid://cw7g2kc7o5b6x" path="res://visuals/correct.svg" id="3_nt8di"]
+[ext_resource type="Script" uid="uid://gyf805vul10t" path="res://code/uiElements/sceneButton.gd" id="4_nt8di"]
 
 [node name="Control" type="Control" unique_id=1604900140 node_paths=PackedStringArray("cardNode", "cardText", "countDisplay")]
 layout_mode = 3
@@ -133,6 +134,18 @@ offset_bottom = 92.0
 text = "1/4"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=2118042319]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.030381944
+anchor_top = 0.9166667
+anchor_right = 0.0859375
+anchor_bottom = 0.96450615
+text = "Quit"
+script = ExtResource("4_nt8di")
+scene = "res://scenes/gameSelect.tscn"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Node2D/Flip" to="." method="_on_flip_pressed"]
 [connection signal="pressed" from="Incorrect" to="." method="_on_incorrect_pressed"]

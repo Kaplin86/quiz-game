@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://ceoeqae7utn4j" path="res://code/minigame/definitions/spelling.tres" id="4_518wh"]
 [ext_resource type="Resource" uid="uid://wb1w8xu4qxvx" path="res://code/minigame/definitions/memoryMatch.tres" id="5_w7sqs"]
 [ext_resource type="Resource" uid="uid://blhwwv6xsbv6e" path="res://code/minigame/definitions/quiz.tres" id="6_s3yrk"]
+[ext_resource type="Script" uid="uid://gyf805vul10t" path="res://code/uiElements/sceneButton.gd" id="7_lka0x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8336p"]
 content_margin_left = 5.0
@@ -57,3 +58,14 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="." unique_id=1148702384]
+layout_mode = 0
+anchor_left = 0.030381944
+anchor_top = 0.9166667
+anchor_right = 0.0859375
+anchor_bottom = 0.96450615
+text = "<- Back"
+script = ExtResource("7_lka0x")
+scene = "res://scenes/setSelector.tscn"
+metadata/_edit_use_anchors_ = true

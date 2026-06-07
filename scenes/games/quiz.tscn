@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dowswdsxf14kh"]
 
+[ext_resource type="Script" uid="uid://gyf805vul10t" path="res://code/uiElements/sceneButton.gd" id="2_8pqga"]
 [ext_resource type="Script" uid="uid://2g0squpnj6wi" path="res://code/minigame/quizGame.gd" id="2_e4r0n"]
 
 [node name="Control" type="Control" unique_id=1597713615 node_paths=PackedStringArray("questionCountLabel", "questionText", "grid")]
@@ -48,6 +49,13 @@ bbcode_enabled = true
 text = "Lets pose a very large hypothetical. Right here, right now."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/Panel/VBoxContainer" unique_id=1577923545]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("2_8pqga")
+scene = "res://scenes/gameSelect.tscn"
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=343040348]
 layout_mode = 2

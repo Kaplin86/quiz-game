@@ -9,6 +9,8 @@ var selectedQuiz : Quiz
 @export var masteryDisplay : MasteryDisplay
 @export var memoryMatchLowScore : Label
 
+var datasetButton = preload("res://scenes/datasetBox.tscn")
+
 func promptNewSet():
 	var path = await QuestionImporter.locateCSV()
 	if path == "":
@@ -40,8 +42,12 @@ func loadThemes():
 		themeButton.set_item_metadata(-1,iTheme)
 
 func setSelected(button : BaseButton):
+	var editable = button.get_meta("editable",true)
 	for I in get_tree().get_nodes_in_group("requireDataset"):
-		I.disabled = false
+		if !(I.is_in_group("requireEditing") and !editable):
+			I.disabled = false
+		else:
+			I.disabled = true
 	selectedQuiz = button.get_meta("quiz",null)
 	masteryDisplay.displayQuiz(selectedQuiz)
 	if selectedQuiz.memoryMatchLowScore != 999:
@@ -63,7 +69,7 @@ func loadQuizs():
 	var filePaths = DirAccess.open("user://").get_files()
 	for filePath in filePaths:
 		if filePath.get_extension() == "tres":
-			var resource = ResourceLoader.load("user://"+filePath)
+			var resource = ResourceLoader.load("user://"+filePath,"",ResourceLoader.CACHE_MODE_IGNORE)
 			if resource is Quiz:
 				loadedQuizs.append(resource)
 	
@@ -72,14 +78,20 @@ func loadQuizs():
 	for i in quizBox.get_children():i.queue_free()
 	
 	for quiz : Quiz in loadedQuizs:
+		print(quiz.displayName," ",quiz.questionColumn)
 		if !quiz.hidden:
-			var newButton = Button.new()
+			var newButton = datasetButton.instantiate()
 			newButton.toggle_mode = true
 			newButton.button_group = buttonGroup
 			newButton.text = quiz.displayName
 			quizBox.add_child(newButton)
 			newButton.set_meta("quiz",quiz)
 			newButton.tooltip_text = quiz.sourcePath
+			
+			if !FileAccess.file_exists(quiz.sourcePath):
+				newButton.tooltip_text = "Unable to find the source file for this quiz. This quiz can still be used, but no longer can be edited."
+				newButton.find_child("Warning").visible = true
+				newButton.set_meta("editable",false)
 
 
 func pressedSelected():
@@ -94,3 +106,9 @@ func removeSelected():
 	selectedQuiz.hidden = true
 	ResourceSaver.save(selectedQuiz)
 	loadQuizs()
+
+func redefineSelected():
+	QuestionImporter.loadedQuiz = selectedQuiz
+	QuestionImporter._questionPathHold = selectedQuiz.sourcePath
+	print(selectedQuiz.descColumn)
+	get_tree().change_scene_to_file("res://scenes/setColumns.tscn")
